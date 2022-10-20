@@ -33,11 +33,9 @@ const operators = {
     divide: divide,
 }
 
-let a = "";
-let b = "";
+let numA = "";
+let numB = "";
 let currentOperation = "";
-let entry = "";
-
 
 let buttonArray = document.querySelectorAll("button");
 let currentDisplay = document.querySelector(".display");
@@ -52,30 +50,30 @@ function compute(button) {
     entry = button.value;
     if (button.classList.contains("digit")) {
         if (currentOperation == "") {
-            a += entry;
-            display(a);
+            numA += entry;
+            display(numA);
         }
         else {
-            b += entry;
-            display(b);
+            numB += entry;
+            display(numB);
         }
     }
     else if (button.classList.contains("operator")){
         display(button.textContent);
-        if (currentOperation == "" && a != "") {
+        if (currentOperation == "" && numA != "") {
             currentOperation = entry;
         }
         else if (currentOperation != "") {
-            a = operate(operators[currentOperation], Number(a), Number(b));
-            display(a);
-            b = "";
+            numA = operate(operators[currentOperation], Number(numA), Number(numB));
+            display(numA);
+            numB = "";
             currentOperation = entry;
         }
     }
-    else if (button.value="enter" && b != "") {
-        a = operate(operators[currentOperation], Number(a), Number(b));
-        display(a);
-        b = "";
+    else if (button.value="enter" && numB != "") {
+        numA = operate(operators[currentOperation], Number(numA), Number(numB));
+        display(numA);
+        numB = "";
         currentOperation = "";
     }
 }
