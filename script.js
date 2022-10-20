@@ -30,10 +30,13 @@ let buttonArray = document.querySelectorAll("button");
 
 buttonArray.forEach ((button) => {
     button.addEventListener('click', () => {
-        console.log(button.value);
+        compute(button);
     });
 });
 
+function compute(button) {
+    console.log(button.value);
+}
 
 
 
