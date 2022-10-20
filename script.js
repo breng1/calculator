@@ -66,14 +66,14 @@ function compute(button) {
             currentOperation = entry;
         }
         else if (currentOperation != "") {
-            a = operate(operators[currentOperation], a, b);
+            a = operate(operators[currentOperation], Number(a), Number(b));
             display(a);
             b = "";
             currentOperation = entry;
         }
     }
     else if (button.value="enter" && b != "") {
-        a = operate(operators[currentOperation], a, b);
+        a = operate(operators[currentOperation], Number(a), Number(b));
         display(a);
         b = "";
         currentOperation = "";
