@@ -1,1 +1,50 @@
-/* style.css
+/* style.css */
+:root {
+    --light-color1: white;
+    --light-color2: rgb(220, 233, 255);
+    --medium-color: rgb(160, 195, 255);
+    --dark-color: rgb(105, 145, 255);
+}
+
+.button-container {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-auto-rows: 60px;
+    gap: 7px;
+}
+
+.button-container > button, div {
+    border-style: none;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.display {
+    padding: 10px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.clear {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.enter {
+    grid-column-start:3;
+    grid-column-end:5;
+}
+
+.light {
+    background-color: var(--light-color2);
+}
+
+.medium {
+    background-color: var(--medium-color);
+}
+
+.dark {
+    background-color: var(--dark-color);
+    color: var(--light-color1);
+}
