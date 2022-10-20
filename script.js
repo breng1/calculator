@@ -36,6 +36,7 @@ const operators = {
 let numA = "";
 let numB = "";
 let currentOperation = "";
+let isNew = false;
 
 let buttonArray = document.querySelectorAll("button");
 let currentDisplay = document.querySelector(".display");
@@ -48,15 +49,20 @@ buttonArray.forEach ((button) => {
 
 function compute(button) {
     if (button.classList.contains("digit")) {
-        if (currentOperation == "") {
-            numA += button.value;
-            display(numA);
-        }
-        else {
+        if (currentOperation != "") {
             numB += button.value;
             display(numB);
         }
+        else if (!isNew) {
+            numA += button.value;
+            display(numA);
+        }
+        else if (isNew){
+            numA = button.value;
+            display(numA);
+        }
     }
+
     else if (button.classList.contains("operator")){
         display(button.textContent);
         if (currentOperation == "" && numA != "") {
@@ -66,6 +72,7 @@ function compute(button) {
             numA = operate(operators[currentOperation], Number(numA), Number(numB));
             display(numA);
             numB = "";
+            isNew = true;
             currentOperation = button.value;
         }
     }
@@ -73,9 +80,11 @@ function compute(button) {
         numA = operate(operators[currentOperation], Number(numA), Number(numB));
         display(numA);
         numB = "";
+        isNew = true;
         currentOperation = "";
     }
 }
+
 
 
 // Displays text in the calculator display
