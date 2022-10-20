@@ -25,6 +25,8 @@ function operate (operator, a, b) {
     return operator(a,b);
 }
 
+let a, b, currentOperation, entry;
+
 
 let buttonArray = document.querySelectorAll("button");
 let currentDisplay = document.querySelector(".display");

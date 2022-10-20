@@ -41,11 +41,11 @@ body {
     grid-column-end:5;
 }
 
-.light {
+.digit {
     background-color: var(--light-color2);
 }
 
-.medium {
+.medium, .operator {
     background-color: var(--medium-color);
 }
 
