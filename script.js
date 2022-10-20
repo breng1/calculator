@@ -60,32 +60,34 @@ function compute(button) {
         else if (isNew){
             numA = button.value;
             display(numA);
+            isNew = false;
         }
     }
 
     else if (button.classList.contains("operator")){
         display(button.textContent);
-        if (currentOperation == "" && numA != "") {
+        if (numA != "" && numB == "") {
             currentOperation = button.value;
         }
-        else if (currentOperation != "") {
-            numA = operate(operators[currentOperation], Number(numA), Number(numB));
-            display(numA);
-            numB = "";
-            isNew = true;
+        else if (numA != "" && numB != "") {
+            calculate();
             currentOperation = button.value;
         }
     }
+
     else if (button.value="enter" && numB != "") {
-        numA = operate(operators[currentOperation], Number(numA), Number(numB));
-        display(numA);
-        numB = "";
-        isNew = true;
-        currentOperation = "";
+        calculate();
     }
 }
 
-
+// Calculates result, given strings: operator name, operand 1, and operand 2
+function calculate () {
+    numA = operate(operators[currentOperation], Number(numA), Number(numB));
+    display(numA);
+    numB = "";
+    isNew = true;
+    currentOperation = "";
+}
 
 // Displays text in the calculator display
 function display(text) {
