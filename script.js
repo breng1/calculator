@@ -19,3 +19,8 @@ function multiply (a, b) {
 function divide (a,b) {
     return a/b;
 }
+
+// Performs operation on two numbers
+function operate (operator, a, b) {
+    return operator(a,b);
+}
