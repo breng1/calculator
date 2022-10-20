@@ -75,7 +75,7 @@ function compute(button) {
         }
     }
 
-    else if (button.value="enter" && numB != "") {
+    else if (button.classList.contains("enter") && numB != "") {
         calculate();
     }
 }
