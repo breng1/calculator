@@ -25,6 +25,14 @@ function operate (operator, a, b) {
     return operator(a,b);
 }
 
+// Create object to store operators 
+const operators = {
+    add: add,
+    subtract: subtract,
+    multiply: multiply,
+    divide: divide,
+}
+
 let a = "";
 let b = "";
 let currentOperation = "";
@@ -58,14 +66,14 @@ function compute(button) {
             currentOperation = entry;
         }
         else if (currentOperation != "") {
-            a = operate(currentOperation, a, b);
+            a = operate(operators[currentOperation], a, b);
             display(a);
             b = "";
             currentOperation = entry;
         }
     }
     else if (button.value="enter" && b != "") {
-        a = operate(currentOperation, a,b);
+        a = operate(operators[currentOperation], a, b);
         display(a);
         b = "";
         currentOperation = "";
