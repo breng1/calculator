@@ -47,27 +47,26 @@ buttonArray.forEach ((button) => {
 });
 
 function compute(button) {
-    entry = button.value;
     if (button.classList.contains("digit")) {
         if (currentOperation == "") {
-            numA += entry;
+            numA += button.value;
             display(numA);
         }
         else {
-            numB += entry;
+            numB += button.value;
             display(numB);
         }
     }
     else if (button.classList.contains("operator")){
         display(button.textContent);
         if (currentOperation == "" && numA != "") {
-            currentOperation = entry;
+            currentOperation = button.value;
         }
         else if (currentOperation != "") {
             numA = operate(operators[currentOperation], Number(numA), Number(numB));
             display(numA);
             numB = "";
-            currentOperation = entry;
+            currentOperation = button.value;
         }
     }
     else if (button.value="enter" && numB != "") {
@@ -77,6 +76,7 @@ function compute(button) {
         currentOperation = "";
     }
 }
+
 
 // Displays text in the calculator display
 function display(text) {
