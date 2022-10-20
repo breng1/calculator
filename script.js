@@ -78,6 +78,10 @@ function compute(button) {
     else if (button.classList.contains("enter") && numB != "") {
         calculate();
     }
+
+    else if (button.classList.contains("clear")) {
+        clear();
+    }
 }
 
 // Calculates result, given strings: operator name, operand 1, and operand 2
@@ -87,6 +91,15 @@ function calculate () {
     numB = "";
     isNew = true;
     currentOperation = "";
+}
+
+// Resets calculator 
+function clear () {
+    let numA = "";
+    let numB = "";
+    let currentOperation = "";
+    let isNew = false;
+    display(0);
 }
 
 // Displays text in the calculator display
