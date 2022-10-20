@@ -27,6 +27,7 @@ function operate (operator, a, b) {
 
 
 let buttonArray = document.querySelectorAll("button");
+let currentDisplay = document.querySelector(".display");
 
 buttonArray.forEach ((button) => {
     button.addEventListener('click', () => {
@@ -35,7 +36,13 @@ buttonArray.forEach ((button) => {
 });
 
 function compute(button) {
+    display(button.textContent);
     console.log(button.value);
+}
+
+// Displays text in the calculator display
+function display(text) {
+    currentDisplay.textContent = text;
 }
 
 
