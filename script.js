@@ -24,3 +24,16 @@ function divide (a,b) {
 function operate (operator, a, b) {
     return operator(a,b);
 }
+
+
+let buttonArray = document.querySelectorAll("button");
+
+buttonArray.forEach ((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.value);
+    });
+});
+
+
+
+
