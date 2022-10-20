@@ -25,7 +25,10 @@ function operate (operator, a, b) {
     return operator(a,b);
 }
 
-let a, b, currentOperation, entry;
+let a = "";
+let b = "";
+let currentOperation = "";
+let entry = "";
 
 
 let buttonArray = document.querySelectorAll("button");
@@ -38,14 +41,42 @@ buttonArray.forEach ((button) => {
 });
 
 function compute(button) {
-    display(button.textContent);
-    console.log(button.value);
+    entry = button.value;
+    if (button.classList.contains("digit")) {
+        if (currentOperation == "") {
+            a += entry;
+            display(a);
+        }
+        else {
+            b += entry;
+            display(b);
+        }
+    }
+    else if (button.classList.contains("operator")){
+        display(button.textContent);
+        if (currentOperation == "" && a != "") {
+            currentOperation = entry;
+        }
+        else if (currentOperation != "") {
+            a = operate(currentOperation, a, b);
+            display(a);
+            b = "";
+            currentOperation = entry;
+        }
+    }
+    else if (button.value="enter" && b != "") {
+        a = operate(currentOperation, a,b);
+        display(a);
+        b = "";
+        currentOperation = "";
+    }
 }
 
 // Displays text in the calculator display
 function display(text) {
     currentDisplay.textContent = text;
 }
+
 
 
 
