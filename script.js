@@ -43,11 +43,11 @@ let currentDisplay = document.querySelector(".display");
 
 buttonArray.forEach ((button) => {
     button.addEventListener('click', () => {
-        compute(button);
+        process(button);
     });
 });
 
-function compute(button) {
+function process(button) {
     if (button.classList.contains("digit")) {
         if (currentOperation != "") {
             numB += button.value;
@@ -95,10 +95,10 @@ function calculate () {
 
 // Resets calculator 
 function clear () {
-    let numA = "";
-    let numB = "";
-    let currentOperation = "";
-    let isNew = false;
+    numA = "";
+    numB = "";
+    currentOperation = "";
+    isNew = false;
     display(0);
 }
 
